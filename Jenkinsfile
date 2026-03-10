@@ -1,25 +1,17 @@
-pipeline {
+​pipeline {
     agent any
-
     stages {
-        stage('Checkout') {
+        stage('Publish') {
             steps {
-               git 'https://github.com/sejalhule03/javarep.git'
+                publishHTML([
+                    allowmissing: true,
+                    alwaysLinktoLastBuild: false,
+                    keepAll: false,
+                    reportDir: '.',
+                    reportFiles: 'file.html',
+                    reportName: 'MY HTML PIPE PAGE'
+                ])
             }
         }
-        
-        stage('Build') {
-            steps {
-                echo 'Comipiling in progress'
-                bat 'javac Hello.java'
-            }
-        }
-         stage('Executte') {
-            steps {
-                echo 'Executing....'
-                java Hello.java
-                bat 'java Hello.java'
-            }
-        }
-     }
+    }
 }
