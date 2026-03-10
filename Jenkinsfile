@@ -4,7 +4,7 @@ pipeline{
   stage('Checkout'){
     step{
       echo 'Checking out Repo'
-     git checkout main
+     git branch 'main',
       git 'https://github.com/sejalhule03/javarep.git'
     }
   } 
