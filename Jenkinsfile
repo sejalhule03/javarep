@@ -3,8 +3,8 @@ pipeline{
   stages{
   stage('Checkout'){
     step{
-     git checkout main
       echo 'Checking out Repo'
+     git checkout main
       git 'https://github.com/sejalhule03/javarep.git'
     }
   } 
